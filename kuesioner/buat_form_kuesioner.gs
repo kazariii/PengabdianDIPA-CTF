@@ -45,7 +45,8 @@ function buatKuesioner() {
     .setTitle('Dibandingkan sebelum mengikuti kegiatan, minat Anda terhadap bidang keamanan siber saat ini:')
     .setChoiceValues(['Jauh lebih tinggi', 'Lebih tinggi', 'Sama saja', 'Lebih rendah']).setRequired(true);
 
-  // Bagian 3. Motivasi belajar, diadaptasi dari model ARCS (Keller)
+  // Bagian 3. Motivasi belajar, diadaptasi dari model ARCS (Keller). Aspek Kepuasan tidak ditanyakan di sini
+  // karena dianalisis secara kualitatif dari umpan balik pada form pendataan sertifikat.
   form.addPageBreakItem().setTitle('Bagian 3. Motivasi Belajar')
     .setHelpText('Berikan tanggapan Anda terhadap setiap pernyataan berikut.');
   grid(form, 'A. Perhatian (Attention)', [
@@ -63,21 +64,15 @@ function buatKuesioner() {
     'Tingkat kesulitan soal sesuai dengan kemampuan saya.',
     'Saya yakin dapat mempelajari topik keamanan siber lebih lanjut secara mandiri.'
   ]);
-  grid(form, 'D. Kepuasan (Satisfaction)', [
-    'Saya merasa puas dengan apa yang saya pelajari dalam kegiatan ini.',
-    'Saya merasa senang ketika berhasil menemukan flag.',
-    'Saya ingin mengikuti kegiatan atau kompetisi CTF serupa di kemudian hari.'
-  ]);
 
-  // Bagian 4. Minat lanjutan dan masukan
-  form.addPageBreakItem().setTitle('Bagian 4. Minat Lanjutan dan Masukan');
+  // Bagian 4. Minat lanjutan
+  form.addPageBreakItem().setTitle('Bagian 4. Minat Lanjutan');
   grid(form, 'Rencana setelah kegiatan', [
+    'Saya ingin mengikuti kegiatan atau kompetisi CTF serupa di kemudian hari.',
     'Saya ingin bergabung dengan klub atau ekstrakurikuler keamanan siber jika ada di sekolah.',
     'Saya akan berlatih di platform CTF secara mandiri setelah kegiatan ini.',
     'Saya tertarik menekuni bidang keamanan siber sebagai pilihan studi lanjut atau karier.'
   ]);
-  form.addParagraphTextItem().setTitle('Bagian kegiatan yang paling Anda sukai dan alasannya');
-  form.addParagraphTextItem().setTitle('Saran untuk kegiatan serupa di masa mendatang');
 
   // Spreadsheet respons (dibuat sekali saja)
   var ssUrl;
